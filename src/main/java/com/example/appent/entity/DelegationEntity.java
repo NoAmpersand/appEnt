@@ -3,6 +3,9 @@ package com.example.appent.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,4 +25,7 @@ public class DelegationEntity {
     private String medaillesArgent;
 
     private String medaillesBronze;
+
+    @OneToMany(mappedBy = "delegation")
+    private List<ParticipantEntity> participants = new ArrayList<>();
 }
