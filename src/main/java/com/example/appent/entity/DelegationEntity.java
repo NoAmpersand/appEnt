@@ -13,7 +13,7 @@ public class DelegationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long idDelegation;
 
     private String nom;
 
