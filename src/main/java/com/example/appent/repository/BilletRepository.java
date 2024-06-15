@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BilletRepository extends JpaRepository<BilletEntity, Long> {
-
+    BilletEntity findByIdBillet(Long idBillet);
 }
