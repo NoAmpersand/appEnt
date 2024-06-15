@@ -6,8 +6,6 @@ import com.example.appent.repository.SpectateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class SpectateurService {
     private SpectateurRepository spectateurRepository;
@@ -18,13 +16,14 @@ public class SpectateurService {
     }
 
 
-    public SpectateurEntity ajouterUtilisateur(SpectateurEntity utilisateur) {
+    public SpectateurEntity addUtilisateur(SpectateurEntity utilisateur) {
         return spectateurRepository.save(utilisateur);
     }
 
-    // Nouvelle méthode pour récupérer tous les utilisateurs
-    public List<SpectateurEntity> getAllUsers() {
-        return spectateurRepository.findAll();
+    public SpectateurEntity deleteUtilateur(Long id) {
+         spectateurRepository.deleteById(id);
+        return null;
     }
+
 
 }

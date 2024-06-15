@@ -9,10 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,8 +32,8 @@ public class SpectateurController {
         return specteurRepository.save(spectateur);
     }
 
-    @GetMapping("/getUsers")
-    public List<SpectateurEntity> getAllUsers() {
-        return spectateurService.getAllUsers();
+    @GetMapping("/deleteUser")
+    public SpectateurEntity deleteUser(@PathVariable Long id) {
+        return spectateurService.deleteUtilateur(id);
     }
 }

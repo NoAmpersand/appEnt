@@ -22,8 +22,7 @@ public class BilletEntity {
     private BilletState etat ;
 
     @ManyToOne
-    private SpectateurEntity spectateur;
-
+    private SpectateurEntity idSpectateur;
 
 
 }

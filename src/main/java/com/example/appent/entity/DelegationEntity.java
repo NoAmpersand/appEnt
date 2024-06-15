@@ -20,12 +20,21 @@ public class DelegationEntity {
 
     private String nom;
 
-    private String medaillesOr;
+    private int medaillesOr;
 
-    private String medaillesArgent;
+    private int medaillesArgent;
 
-    private String medaillesBronze;
+    private int medaillesBronze;
 
     @OneToMany(mappedBy = "delegation")
     private List<ParticipantEntity> participants = new ArrayList<>();
+
+    public DelegationEntity(String nom){
+        this.nom = nom;
+        this.medaillesOr = 0;
+        this.medaillesArgent =0;
+        this.medaillesBronze = 0;
+        this.participants = new ArrayList<>();
+
+    }
 }
