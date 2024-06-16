@@ -23,5 +23,11 @@ public class InfrastructureEntity {
 
     private Integer capacité;
 
+    public InfrastructureEntity(String nom){
+        this.nom = nom;
+        this.adresse = "";
+        this.capacité=0;
+    }
+
 
 }

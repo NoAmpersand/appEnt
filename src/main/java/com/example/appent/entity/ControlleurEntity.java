@@ -4,26 +4,21 @@ import com.example.appent.helpers.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "spectateur")
-public class SpectateurEntity {
+@Table(name = "organisateur")
+public class ControlleurEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
-    private Role role=Role.SPECTATEUR;
-
-    @OneToMany(mappedBy = "spectateur")
-    private ArrayList<BilletEntity> billets;
+    private Role role=Role.CONTROLEUR;
 
 }

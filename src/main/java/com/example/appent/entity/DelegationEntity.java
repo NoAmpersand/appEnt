@@ -35,6 +35,5 @@ public class DelegationEntity {
         this.medaillesArgent =0;
         this.medaillesBronze = 0;
         this.participants = new ArrayList<>();
-
     }
 }

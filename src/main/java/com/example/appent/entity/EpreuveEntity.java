@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.security.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -31,7 +33,11 @@ public class EpreuveEntity {
 
     private int nbParticipants;
 
+    @OneToMany(mappedBy = "epreuve")
+    private ArrayList<BilletEntity> billets;
+
+    @OneToMany(mappedBy = "epreuve")
+    private Collection<ResultatEntity> listeResultats ;
+
     // TABPLACE
-
-
 }

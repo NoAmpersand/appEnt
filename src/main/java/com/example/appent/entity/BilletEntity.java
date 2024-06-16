@@ -22,7 +22,10 @@ public class BilletEntity {
     private BilletState etat ;
 
     @ManyToOne
-    private SpectateurEntity idSpectateur;
+    private SpectateurEntity spectateur;
+
+    @ManyToOne
+    private EpreuveEntity epreuve;
 
 
 }

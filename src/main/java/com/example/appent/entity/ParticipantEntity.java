@@ -2,16 +2,17 @@ package com.example.appent.entity;
 
 
 
+import com.example.appent.helpers.Role;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Table(name = "participant")
 public class ParticipantEntity {
 
@@ -21,7 +22,10 @@ public class ParticipantEntity {
     private String firstName;
     private String lastName;
     private String email;
-    private String delegation;
+    private Role role = Role.PARTICIPANT;
+
+    @ManyToOne
+    private DelegationEntity delegation;
 
 
 }
