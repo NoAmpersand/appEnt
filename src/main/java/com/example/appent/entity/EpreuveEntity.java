@@ -39,5 +39,7 @@ public class EpreuveEntity {
     @OneToMany(mappedBy = "epreuve")
     private Collection<ResultatEntity> listeResultats ;
 
-    // TABPLACE
+    @OneToMany
+    private Collection<ParticipantEntity> participants;
+
 }

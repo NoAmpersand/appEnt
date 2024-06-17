@@ -22,6 +22,7 @@ public class SpectateurEntity {
     private String lastName;
     private String email;
     private Role role=Role.SPECTATEUR;
+    private int  money;
 
     @OneToMany(mappedBy = "spectateur")
     private ArrayList<BilletEntity> billets;
