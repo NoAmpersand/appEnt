@@ -26,8 +26,8 @@ public class DelegationEntity {
 
     private int medaillesBronze;
 
-    @OneToMany(mappedBy = "delegation")
-    private List<ParticipantEntity> participants = new ArrayList<>();
+    @OneToMany(mappedBy = "delegation",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ParticipantEntity> participants;
 
     public DelegationEntity(String nom){
         this.nom = nom;

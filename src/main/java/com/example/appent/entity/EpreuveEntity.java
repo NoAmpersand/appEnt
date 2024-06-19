@@ -48,5 +48,7 @@ public class EpreuveEntity {
         this.nbPlacesSpectateur = nbPlacesSpectateur;
         this.nbParticipants = nbParticipants;
         this.insfrastructureSportive = insfrastructureSportive;
+        listeResultats = new ArrayList<>();
+        participants = new ArrayList<>();
     }
 }

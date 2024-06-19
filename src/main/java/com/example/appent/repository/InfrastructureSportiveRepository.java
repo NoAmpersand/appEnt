@@ -9,4 +9,8 @@ import java.util.Optional;
 public interface InfrastructureSportiveRepository extends JpaRepository<InfrastructureEntity, Long> {
     Optional<InfrastructureEntity> findById(Long id);
 
+    Optional<InfrastructureEntity> findByNom(String nom);
+
+
+
 }

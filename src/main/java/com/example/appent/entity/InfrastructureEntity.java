@@ -23,10 +23,17 @@ public class InfrastructureEntity {
 
     private String adresse;
 
-    private Integer capacité;
+    private Integer capacity;
 
     @OneToMany(mappedBy = "insfrastructureSportive")
     private Collection<EpreuveEntity> epreuveEntities;
+
+    public InfrastructureEntity(String nom, int capacite, String adresse) {
+        this.nom = nom;
+        this.capacity = capacite ;
+        this.adresse = adresse ;
+    }
+
 
 
 }

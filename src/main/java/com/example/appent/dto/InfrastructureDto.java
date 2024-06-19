@@ -12,8 +12,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class InfrastructureDto implements Serializable {
-    Long id;
-    String nom;
-    String adresse;
-    Integer capacité;
+    private  String nom;
+    private String adresse;
+    private int capacite;
 }
