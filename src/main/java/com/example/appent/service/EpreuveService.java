@@ -7,20 +7,23 @@ import com.example.appent.exception.EpreuveInexistante;
 import com.example.appent.repository.DelegationRepository;
 import com.example.appent.repository.EpreuveRepository;
 import com.example.appent.repository.InfrastructureSportiveRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EpreuveService {
     private EpreuveRepository epreuveRepository;
     private InfrastructureSportiveRepository sportiveRepository;
+    private ModelMapper modelMapper = new ModelMapper();
 
     public EpreuveService(EpreuveRepository epreuveRepository) {
         this.epreuveRepository = epreuveRepository;
     }
 
 
-    public EpreuveEntity createEpreuve(EpreuveDTO epreuveDTO) throws EpreuveInexistante, EpreuveInexistante {
+    public EpreuveDTO createEpreuve(EpreuveDTO epreuveDTO) throws EpreuveInexistante, EpreuveInexistante {
         // Vérifiez si une épreuve avec le même nom existe déjà
         if (this.epreuveRepository.findByNom(epreuveDTO.getNom()).isPresent()) {
             throw new EpreuveInexistante(HttpStatus.CONFLICT);
@@ -43,6 +46,22 @@ public class EpreuveService {
                 epreuveDTO.getNbParticipants(),
                 infrastructureEntity
         );
-        return epreuveRepository.save(epreuveEntity);
+
+         this.epreuveRepository.save(epreuveEntity);
+         return this.modelMapper.map(epreuveEntity, EpreuveDTO.class);
     }
+
+    public ResponseEntity<String> deleteEpreuve(Long idEpreuve) throws EpreuveInexistante {
+        if(!this.epreuveRepository.findById(idEpreuve).isPresent()) {
+            throw new EpreuveInexistante(HttpStatus.NOT_FOUND);
+        }
+        EpreuveEntity epreuve = this.epreuveRepository.findById(idEpreuve).get();
+        this.epreuveRepository.deleteById(idEpreuve);
+
+        return new ResponseEntity<>("Epreuve supprimé", HttpStatus.OK);
+    }
+
+
+
+
 }
