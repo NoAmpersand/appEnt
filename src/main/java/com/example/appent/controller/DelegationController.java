@@ -1,6 +1,7 @@
 package com.example.appent.controller;
 
 import com.example.appent.entity.DelegationEntity;
+import com.example.appent.exception.DelegationEmpty;
 import com.example.appent.exception.DelegationExist;
 import com.example.appent.exception.DelegationNotExisting;
 import com.example.appent.service.DelegationService;
@@ -25,6 +26,11 @@ public class DelegationController {
     @DeleteMapping("/supprimer")
     public void DeleteDelegation(@RequestParam String nom) throws DelegationNotExisting {
         delegationService.DeleteDelegation(nom);
+    }
+
+    @GetMapping("/getAllDel")
+    public void getDel() throws DelegationEmpty {
+        delegationService.getDelegation();
     }
 
 }

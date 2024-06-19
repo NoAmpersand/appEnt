@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,11 +25,8 @@ public class InfrastructureEntity {
 
     private Integer capacité;
 
-    public InfrastructureEntity(String nom){
-        this.nom = nom;
-        this.adresse = "";
-        this.capacité=0;
-    }
+    @OneToMany(mappedBy = "insfrastructureSportive")
+    private Collection<EpreuveEntity> epreuveEntities;
 
 
 }

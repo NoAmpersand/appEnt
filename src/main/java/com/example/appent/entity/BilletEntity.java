@@ -26,6 +26,4 @@ public class BilletEntity {
 
     @ManyToOne
     private EpreuveEntity epreuve;
-
-
 }

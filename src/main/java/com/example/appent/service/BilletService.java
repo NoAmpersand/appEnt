@@ -23,4 +23,7 @@ public class BilletService {
         }
         return b.getEtat();
     }
+
+    //public
+
 }

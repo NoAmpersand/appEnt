@@ -1,7 +1,8 @@
 package com.example.appent.repository;
 
-import com.example.appent.entity.BilletEntity;
+import com.example.appent.entity.OrganisateurEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrganisateurRepository extends JpaRepository<BilletEntity, Long> {
+public interface OrganisateurRepository extends JpaRepository<OrganisateurEntity, Long> {
+    public OrganisateurEntity findByEmail(String email);
 }

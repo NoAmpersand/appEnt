@@ -25,5 +25,4 @@ public class SpectateurService {
         return null;
     }
 
-
 }

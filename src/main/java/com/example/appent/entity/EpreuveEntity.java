@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -26,12 +26,12 @@ public class EpreuveEntity {
 
     private Timestamp date;
 
-    @ManyToOne
-    private InfrastructureEntity insfrastructureSportive ;
-
     private int nbPlacesSpectateur;
 
     private int nbParticipants;
+
+    @ManyToOne
+    private InfrastructureEntity insfrastructureSportive ;
 
     @OneToMany(mappedBy = "epreuve")
     private ArrayList<BilletEntity> billets;
@@ -42,4 +42,11 @@ public class EpreuveEntity {
     @OneToMany
     private Collection<ParticipantEntity> participants;
 
+    public EpreuveEntity(String nom, Timestamp date, int nbPlacesSpectateur, int nbParticipants, InfrastructureEntity insfrastructureSportive) {
+        this.nom = nom;
+        this.date = date;
+        this.nbPlacesSpectateur = nbPlacesSpectateur;
+        this.nbParticipants = nbParticipants;
+        this.insfrastructureSportive = insfrastructureSportive;
+    }
 }

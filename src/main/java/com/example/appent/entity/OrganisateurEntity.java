@@ -21,4 +21,10 @@ public class OrganisateurEntity {
     private String email;
     private Role role=Role.ORGANISATEUR;
 
+    public OrganisateurEntity(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.role=Role.ORGANISATEUR;
+    }
 }
