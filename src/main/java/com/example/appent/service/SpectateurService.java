@@ -78,6 +78,7 @@ public class SpectateurService {
                 billetRepository.delete(billet);
             } else if (daysUntilEvent >= 3 && daysUntilEvent < 7) {
                 billet.setRemboursement(billet.getPrix() * 0.5f);
+                //todo AFFICHER LE PRIX
                 billetRepository.delete(billet);
             } else {
                 throw new RuntimeException("Annulation impossible dans les 3 jours avant l'épreuve.");
