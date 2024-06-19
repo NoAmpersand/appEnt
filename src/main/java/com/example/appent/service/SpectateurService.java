@@ -14,6 +14,8 @@ import org.antlr.v4.runtime.misc.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
 @Service
@@ -67,7 +69,23 @@ public class SpectateurService {
     public void annulerReservation(String email, Long id) {
         BilletEntity billet = billetRepository.findById(id).orElseThrow();
         if(billet.getSpectateur().getEmail().equals(email)) {
-            billetRepository.delete(billet);
+            LocalDateTime now = LocalDateTime.now();
+            LocalDateTime dateEpreuve = billet.getEpreuve().getDate().toLocalDateTime();
+            long daysUntilEvent = ChronoUnit.DAYS.between(now, dateEpreuve);
+
+            if (daysUntilEvent >= 7) {
+                billet.setRemboursement(billet.getPrix());
+                billetRepository.delete(billet);
+            } else if (daysUntilEvent >= 3 && daysUntilEvent < 7) {
+                billet.setRemboursement(billet.getPrix() * 0.5f);
+                billetRepository.delete(billet);
+            } else {
+                throw new RuntimeException("Annulation impossible dans les 3 jours avant l'épreuve.");
+            }
+
+            billetRepository.save(billet);
+        } else {
+            throw new RuntimeException("Billet non trouvé pour cet utilisateur.");
         }
     }
 }

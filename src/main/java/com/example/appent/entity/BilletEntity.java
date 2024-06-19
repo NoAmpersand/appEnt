@@ -4,6 +4,8 @@ import com.example.appent.helpers.BilletState;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 @Data
@@ -26,4 +28,7 @@ public class BilletEntity {
 
     @ManyToOne
     private EpreuveEntity epreuve;
+
+    private LocalDateTime dateAchat;
+    private float remboursement;
 }

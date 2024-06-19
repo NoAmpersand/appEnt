@@ -4,6 +4,7 @@ import com.example.appent.helpers.BilletState;
 import lombok.Value;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * DTO for {@link com.example.appent.entity.BilletEntity}
@@ -14,4 +15,6 @@ public class BilletDto implements Serializable {
     BilletState etat;
     SpectateurDto spectateur;
     EpreuveDTO epreuve;
+    private LocalDateTime dateAchat;
+    private float remboursement;
 }
