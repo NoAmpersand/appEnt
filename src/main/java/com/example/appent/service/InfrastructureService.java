@@ -21,7 +21,7 @@ public class InfrastructureService {
     }
 
     public InfrastructureDto createInfrastructure(InfrastructureDto infrastructureDto,String email) throws InfrastructureExists, OrganisateurNotExisting {
-        if(!this.sportiveRepository.findByNom(infrastructureDto.getNom()).isEmpty()){
+        if(this.sportiveRepository.findByNom(infrastructureDto.getNom()).isPresent()){
             throw new InfrastructureExists();
         }
         if(this.organisateurRepository.findByEmail(email) == null){

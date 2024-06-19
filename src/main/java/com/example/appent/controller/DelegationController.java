@@ -4,6 +4,7 @@ import com.example.appent.entity.DelegationEntity;
 import com.example.appent.exception.DelegationEmpty;
 import com.example.appent.exception.DelegationExist;
 import com.example.appent.exception.DelegationNotExisting;
+import com.example.appent.repository.DelegationRepository;
 import com.example.appent.service.DelegationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,14 @@ public class DelegationController {
     @Autowired
     private final DelegationService delegationService;
 
-    @PostMapping("/createDelegation")
-    public DelegationEntity createDelegation(@RequestBody String nom) throws DelegationExist {
-        return delegationService.createDelegation(nom);
+    @PostMapping("/createDelegation/{email}")
+    public DelegationEntity createDelegation(@RequestBody String nom, @PathVariable String email) throws DelegationExist {
+        return delegationService.createDelegation(nom, email);
     }
 
-    @DeleteMapping("/supprimer")
-    public void DeleteDelegation(@RequestParam String nom) throws DelegationNotExisting {
-        delegationService.DeleteDelegation(nom);
+    @DeleteMapping("/deleteDelegation/{email}")
+    public ResponseEntity<String> DeleteDelegation(@RequestBody String nom, @PathVariable String email) throws DelegationNotExisting {
+        return delegationService.DeleteDelegation(nom, email);
     }
 
     @GetMapping("/getAllDel")
