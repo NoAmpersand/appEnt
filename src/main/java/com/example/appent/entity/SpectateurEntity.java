@@ -4,7 +4,7 @@ import com.example.appent.helpers.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -21,10 +21,11 @@ public class SpectateurEntity {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private Role role=Role.SPECTATEUR;
     private int  money;
 
     @OneToMany(mappedBy = "spectateur")
-    private ArrayList<BilletEntity> billets;
+    private List<BilletEntity> billets;
 
 }
