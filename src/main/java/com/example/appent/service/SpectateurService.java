@@ -51,7 +51,7 @@ public class SpectateurService {
             return false;
         }
     }
-
+/**
     public BilletEntity reserverBillet(String email, BilletDto billetDto) {
         SpectateurEntity spectateur = spectateurRepository.findByEmail(email);
         EpreuveEntity epreuve = epreuveRepository.findById(billetDto.getEpreuve().getIdEpreuve()).orElseThrow();
@@ -63,7 +63,7 @@ public class SpectateurService {
 
         return billetRepository.save(billet);
     }
-
+*/
     public void annulerReservation(String email, Long id) {
         BilletEntity billet = billetRepository.findById(id).orElseThrow();
         if(billet.getSpectateur().getEmail().equals(email)) {

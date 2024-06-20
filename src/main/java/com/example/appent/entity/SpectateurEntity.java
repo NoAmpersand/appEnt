@@ -25,7 +25,7 @@ public class SpectateurEntity {
     private Role role=Role.SPECTATEUR;
     private int  money;
 
-    @OneToMany(mappedBy = "spectateur")
+    @OneToMany(mappedBy = "spectateur", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BilletEntity> billets;
 
 }

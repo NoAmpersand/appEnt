@@ -1,7 +1,7 @@
 package com.example.appent.dto;
 
 import com.example.appent.helpers.BilletState;
-import lombok.Value;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -9,12 +9,16 @@ import java.time.LocalDateTime;
 /**
  * DTO for {@link com.example.appent.entity.BilletEntity}
  */
-@Value
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class BilletDto implements Serializable {
-    float prix;
-    BilletState etat;
-    SpectateurDto spectateur;
-    EpreuveDTO epreuve;
-    private LocalDateTime dateAchat;
-    private float remboursement;
+
+    private float prix;
+    private BilletState state;
+
+    private Long sId;
+    private Long epId;
+
 }

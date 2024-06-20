@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.List;
 
 
 @Repository
@@ -14,6 +15,10 @@ public interface BilletRepository extends JpaRepository<BilletEntity, Long> {
 
     BilletEntity findByIdBilletAndSpectateurId(Long idBillet, Long idS);
 
-    Collection<BilletEntity> findAllBySpectateurId(Long idSpectateur) ;
+    List<BilletEntity> findAllBySpectateurId(Long idSpectateur);
+
+    List<BilletEntity> findBySpectateurId(Long idSpectateur);
+
+    List<BilletEntity> findByEpreuveId(Long idEpreuve);
 
 }

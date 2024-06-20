@@ -31,4 +31,11 @@ public class BilletEntity {
 
     private LocalDateTime dateAchat;
     private float remboursement;
+
+    public BilletEntity(float prix, BilletState etat, SpectateurEntity spectateur, EpreuveEntity epreuve) {
+        this.prix = prix;
+        this.etat = etat;
+        this.spectateur = spectateur;
+        this.epreuve = epreuve;
+    }
 }

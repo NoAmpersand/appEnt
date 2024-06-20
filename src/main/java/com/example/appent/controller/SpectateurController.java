@@ -49,11 +49,13 @@ public class SpectateurController {
         }
     }
 
+    /**
     @PostMapping("/{email}/reservation")
     public ResponseEntity<BilletEntity> reserverBillet(@PathVariable String email, @RequestBody BilletDto billetDto) {
         BilletEntity reservation = spectateurService.reserverBillet(email, billetDto);
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
+     */
 
     @DeleteMapping("/{email}/reservation/{id}")
     public ResponseEntity<Void> annulerReservation(@PathVariable String email, @PathVariable Long id){
