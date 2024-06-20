@@ -26,8 +26,8 @@ public class ParticipantController {
     private ParticipantRepository participantRepository;
 
     @PostMapping("/inscriptionParticipant")
-    public ResponseEntity<ParticipantEntity> inscription(@RequestBody ParticipantDto participantDto) {
-        ParticipantEntity inscritSpectateur = participantService.inscription(participantDto);
+    public ResponseEntity<ParticipantEntity> inscription(@RequestParam Long idDelegation, @RequestBody ParticipantDto participantDto ) {
+        ParticipantEntity inscritSpectateur = participantService.inscription(participantDto, idDelegation);
         return new ResponseEntity<>(inscritSpectateur, HttpStatus.CREATED);
     }
 

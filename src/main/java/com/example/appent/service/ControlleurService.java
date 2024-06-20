@@ -40,7 +40,8 @@ public class ControlleurService {
 
     public void validerBillet(Long billetId) {
         BilletEntity billet = billetRepository.findById(billetId).orElseThrow();
-        if (billet.getEtat() == BilletState.VALID) {
+        // on faisait déjà le test mais  en fait on filtrait sur le mauvais état
+        if (billet.getEtat() == BilletState.CREATED) {
             billet.setEtat(BilletState.USED);
             billetRepository.save(billet);
         } else {

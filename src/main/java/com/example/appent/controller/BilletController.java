@@ -26,10 +26,5 @@ public class BilletController {
         SpectateurEntity spec = spectateurRepository.findByEmail((mail));
         return BilletRepository.findAllBySpectateur(spec);
     }
-    @PostMapping("/validerBillet")
-    public ResponseEntity<?> validerBillet(@RequestParam String mail, @RequestParam Long idBillet) {
-        billetService.validerBillet(mail, idBillet);
-        return ResponseEntity.ok("Billet ok");
 
-    }
 }

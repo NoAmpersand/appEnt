@@ -23,6 +23,7 @@ public class BilletService {
     private SpectateurRepository spectateurRepository;
 
     private ControlleurRepository organisateurRepository;
+
     @Autowired
     public BilletService(ControlleurRepository organisateurRepository,BilletRepository billetRepository, SpectateurRepository spectateurRepository) {
         this.billetRepository = billetRepository;
@@ -37,19 +38,10 @@ public class BilletService {
         }
         return b.getEtat();
     }
+
     public List<BilletEntity> recupererTousLesBilletsUtil(String mail){
         SpectateurEntity spec = spectateurRepository.findByEmail((mail));
         return billetRepository.findAllBySpectateur(spec);
     }
 
-    public void validerBillet(String mail, Long idBillet){
-        ControlleurEntity o = organisateurRepository.findByEmail(mail);
-        if(o==null){
-            throw new IllegalArgumentException("erreur");
-        }
-
-        BilletEntity b = billetRepository.findByIdBillet(idBillet);
-
-        b.setEtat(BilletState.VALID);
-    }
 }
