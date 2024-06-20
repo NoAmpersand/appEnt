@@ -8,9 +8,7 @@ import com.example.appent.entity.EpreuveEntity;
 import com.example.appent.entity.SpectateurEntity;
 import com.example.appent.repository.BilletRepository;
 import com.example.appent.repository.EpreuveRepository;
-import com.example.appent.repository.InfrastructureSportiveRepository;
 import com.example.appent.repository.SpectateurRepository;
-import org.antlr.v4.runtime.misc.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +29,7 @@ public class SpectateurService {
         this.billetRepository = billetRepository;
     }
 
-    public SpectateurEntity deleteUtilateur(Long id) {
+    public SpectateurEntity deleteUtilisateur(Long id) {
          spectateurRepository.deleteById(id);
         return null;
     }

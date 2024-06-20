@@ -10,10 +10,8 @@ import java.util.List;
  */
 @Value
 public class DelegationDto implements Serializable {
-    Long idDelegation;
     String nom;
     int medaillesOr;
     int medaillesArgent;
     int medaillesBronze;
-    List<ParticipantDto> participants;
 }

@@ -36,4 +36,11 @@ public class DelegationEntity {
         this.medaillesBronze = 0;
         this.participants = new ArrayList<>();
     }
+    // Ajout d'un constructeur pour supporter la conversion en DTO
+    public DelegationEntity(String nom, int medaillesOr, int medaillesArgent, int medaillesBronze) {
+        this.nom = nom;
+        this.medaillesOr = medaillesOr;
+        this.medaillesArgent = medaillesArgent;
+        this.medaillesBronze = medaillesBronze;
+    }
 }

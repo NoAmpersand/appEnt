@@ -2,6 +2,7 @@ package com.example.appent.entity;
 
 
 
+import com.example.appent.helpers.ParticipantState;
 import com.example.appent.helpers.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,8 +23,9 @@ public class ParticipantEntity {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
+    private ParticipantState etat = ParticipantState.ACTIF;
     private Role role = Role.PARTICIPANT;
-
     @ManyToOne
     private DelegationEntity delegation;
 

@@ -1,5 +1,6 @@
 package com.example.appent.dto;
 
+import com.example.appent.helpers.EpreuveState;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,8 @@ public class EpreuveDTO {
         private int nbPlacesSpectateur ;
 
         private int nbParticipants ;
+
+        private EpreuveState disponibilité;
 
         private Long insfrastructureSportiveId ;
 

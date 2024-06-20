@@ -36,7 +36,7 @@ public class SpectateurController {
 
     @GetMapping("/deleteUser")
     public SpectateurEntity deleteUser(@PathVariable Long id) {
-        return spectateurService.deleteUtilateur(id);
+        return spectateurService.deleteUtilisateur(id);
     }
 
     @PostMapping("/loginSpectateur")

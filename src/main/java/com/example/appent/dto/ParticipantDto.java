@@ -14,5 +14,6 @@ public class ParticipantDto implements Serializable {
     String firstName;
     String lastName;
     String email;
+    String password;
     Role role;
 }
