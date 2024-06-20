@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 public class BilletDto implements Serializable {
     float prix;
     BilletState etat;
-    SpectateurDto spectateur;
-    EpreuveDTO epreuve;
+    String mailSpectateur;
+    Long idEpreuve;
     private LocalDateTime dateAchat;
     private float remboursement;
 }

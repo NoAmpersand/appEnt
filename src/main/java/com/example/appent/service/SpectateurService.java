@@ -6,6 +6,7 @@ import com.example.appent.dto.SpectateurDto;
 import com.example.appent.entity.BilletEntity;
 import com.example.appent.entity.EpreuveEntity;
 import com.example.appent.entity.SpectateurEntity;
+import com.example.appent.helpers.BilletState;
 import com.example.appent.repository.BilletRepository;
 import com.example.appent.repository.EpreuveRepository;
 import com.example.appent.repository.SpectateurRepository;
@@ -52,17 +53,29 @@ public class SpectateurService {
         }
     }
 
-    public BilletEntity reserverBillet(String email, BilletDto billetDto) {
-        SpectateurEntity spectateur = spectateurRepository.findByEmail(email);
-        EpreuveEntity epreuve = epreuveRepository.findById(billetDto.getEpreuve().getIdEpreuve()).orElseThrow();
+//    public BilletEntity reserverBillet(String email, BilletDto billetDto) {
+//        SpectateurEntity spectateur = spectateurRepository.findByEmail(email);
+//        EpreuveEntity epreuve = epreuveRepository.findById(billetDto.getEpreuve().getIdEpreuve()).orElseThrow();
+//
+//        BilletEntity billet = new BilletEntity();
+//        billet.setSpectateur(spectateur);
+//        billet.setEpreuve(epreuve);
+//
+//
+//        return billetRepository.save(billet);
+//    }
+public BilletEntity reserverBillet(String email, BilletDto billetDto) {
+    SpectateurEntity spectateur = spectateurRepository.findByEmail(email);
+    EpreuveEntity epreuve = epreuveRepository.findById(billetDto.getIdEpreuve()).orElseThrow();
 
-        BilletEntity billet = new BilletEntity();
-        billet.setSpectateur(spectateur);
-        billet.setEpreuve(epreuve);
+    BilletEntity billet = new BilletEntity();
+    billet.setSpectateur(spectateur);
+    billet.setEpreuve(epreuve);
+    billet.setEtat(BilletState.CREATED);
 
 
-        return billetRepository.save(billet);
-    }
+    return billetRepository.save(billet);
+}
 
     public void annulerReservation(String email, Long id) {
         BilletEntity billet = billetRepository.findById(id).orElseThrow();

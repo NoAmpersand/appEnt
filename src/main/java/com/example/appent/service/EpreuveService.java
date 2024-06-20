@@ -135,6 +135,8 @@ public class EpreuveService {
 
         return new ResponseEntity<>("Epreuve supprimé", HttpStatus.OK);
     }
-
+    public List<EpreuveEntity> recupererToutesLesEpreuves() {
+        return epreuveRepository.findAll();
+    }
 
 }

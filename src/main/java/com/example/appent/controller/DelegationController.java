@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class DelegationController {
@@ -29,9 +31,11 @@ public class DelegationController {
         return delegationService.DeleteDelegation(nom, email);
     }
 
-    @GetMapping("/getAllDel")
-    public void getDel() throws DelegationEmpty {
-        delegationService.getDelegation();
+    @GetMapping("/delegations")
+    public ResponseEntity<List<DelegationEntity>> recupererToutesLesDelegations() {
+        List<DelegationEntity> delegations = delegationService.recupererToutesLesDelegations();
+        return ResponseEntity.ok(delegations);
     }
+
 
 }

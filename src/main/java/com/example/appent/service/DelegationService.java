@@ -60,4 +60,8 @@ public class DelegationService {
         return listDelegation;
     }
 
+    public List<DelegationEntity> recupererToutesLesDelegations() {
+        return delegationRepository.findAll();
+    }
+
 }
